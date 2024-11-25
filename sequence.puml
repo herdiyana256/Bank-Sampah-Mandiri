@@ -1,0 +1,24 @@
+@startuml
+actor Admin
+entity Sistem
+
+Admin -> Sistem : Login(username, password)
+Sistem -> Admin : Tampilkan menu utama
+
+Admin -> Sistem : Pilih Menu Transaksi Setor
+Sistem -> Admin : Tampilkan form setor sampah
+
+Admin -> Sistem : Input Data Sampah (jenis, berat)
+Sistem -> Sistem : Validasi Data Sampah
+Sistem -> Admin : Tampilkan hasil validasi
+
+alt Validasi Berhasil
+    Sistem -> Sistem : Proses Transaksi Setor
+    Sistem -> Admin : Transaksi Setor Berhasil
+else Validasi Gagal
+    Sistem -> Admin : Tampilkan pesan error
+end
+
+Admin -> Sistem : Logout
+Sistem -> Admin : Tampilkan konfirmasi logout
+@enduml

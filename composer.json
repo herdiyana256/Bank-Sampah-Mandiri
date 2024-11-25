@@ -1,0 +1,10 @@
+{
+    "require": {
+        "dompdf/dompdf": "^3.0",
+        "phpoffice/phpspreadsheet": "^3.5",
+        "tecnickcom/tcpdf": "^6.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10"
+    }
+}

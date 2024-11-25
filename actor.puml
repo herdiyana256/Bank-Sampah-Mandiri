@@ -1,0 +1,33 @@
+@startuml
+actor "Admin" as admin
+actor "Master Admin" as master_admin
+actor "Dinas Lingkungan Hidup" as dinas_lh
+
+usecase "Akses Data Admin" as UC1
+usecase "Transaksi Setor" as UC2
+usecase "Transaksi Tarik" as UC3
+usecase "Data Nasabah" as UC4
+usecase "Data Sampah" as UC5
+usecase "Status Distribusi Sampah" as UC6
+usecase "Rekapitulasi Sampah" as UC7
+
+admin --> UC1
+admin --> UC2
+admin --> UC3
+admin --> UC4
+admin --> UC5
+
+master_admin --> UC1
+master_admin --> UC2
+master_admin --> UC3
+master_admin --> UC4
+master_admin --> UC5
+master_admin --> UC6
+master_admin --> UC7
+
+dinas_lh --> UC4
+dinas_lh --> UC5
+dinas_lh --> UC6
+dinas_lh --> UC7
+
+@enduml

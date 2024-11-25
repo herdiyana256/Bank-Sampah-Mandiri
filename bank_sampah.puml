@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor Nasabah
+actor Admin
+actor Petugas
+actor Dinas
+actor Mitra
+
+Nasabah -> Admin : Membawa sampah
+Admin -> (Sistem) : Catat data & simpan transaksi
+Admin -> Petugas : Kirim sampah untuk pemilahan
+Petugas -> Petugas : Pilah & pisahkan sampah
+Petugas -> Admin : Lapor hasil pemilahan
+Admin -> Mitra : Kirim sampah anorganik
+Admin -> Dinas : Kirim laporan & distribusi sampah
+Dinas -> Mitra : Kirim sampah untuk daur ulang
+
+note right of Dinas
+End Process:
+- Kompos: Sampah organik
+- Daur ulang: Sampah anorganik
+- Residu: TPA
+end note
+@enduml

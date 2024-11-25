@@ -1,0 +1,21 @@
+{
+    "name": "Aplikasi Bank Sampah",
+    "short_name": "BankSampah",
+    "start_url": "/",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "asset/gambar192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "asset/gambar512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "theme_color": "#4CAF50",
+    "background_color": "#FFFFFF"
+  }
+  

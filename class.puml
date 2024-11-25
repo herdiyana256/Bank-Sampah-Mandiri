@@ -1,0 +1,77 @@
+@startuml
+
+class User {
+  - username: string
+  - password: string
+  - isLoggedIn: boolean
+  + login(username: string, password: string): boolean
+  + logout(): void
+}
+
+class Admin {
+  - adminId: int
+  + tambahDataNasabah(nasabah: DataNasabah): void
+  + updateDataNasabah(nasabah: DataNasabah): void
+  + transaksiSetor(transaksi: Transaksi): void
+  + transaksiTarik(transaksi: Transaksi): void
+}
+
+class MasterAdmin {
+  - masterAdminId: int
+  + monitorAktivitas(): void
+  + aksesDataNasabah(nasabah: DataNasabah): void
+  + aksesDataSampah(sampah: DataSampah): void
+  + statusDistribusiSampah(): void
+  + rekapitulasiSampah(): void
+}
+
+class DinasLingkunganHidup {
+  - dlhId: int
+  + monitorStatusDistribusiSampah(): void
+  + rekapitulasiSampah(): void
+}
+
+class DataNasabah {
+  - nasabahId: int
+  - nama: string
+  - alamat: string
+  - saldoTabunganSampah: float
+}
+
+class DataSampah {
+  - sampahId: int
+  - jenisSampah: string
+  - berat: float
+  - status: string
+}
+
+class Transaksi {
+  - transaksiId: int
+  - jenisTransaksi: string
+  - jumlahSampah: float
+  - waktu: string
+  - nasabah: DataNasabah
+}
+
+class Laporan {
+  - laporanId: int
+  - jenisLaporan: string
+  + generateLaporan(): void
+}
+
+User <|-- Admin
+User <|-- MasterAdmin
+User <|-- DinasLingkunganHidup
+Admin -- DataNasabah: mengelola
+Admin -- DataSampah: mengelola
+Admin -- Transaksi: melakukan
+MasterAdmin -- DataNasabah: mengelola
+MasterAdmin -- DataSampah: mengelola
+MasterAdmin -- Transaksi: mengelola
+MasterAdmin -- Laporan: mengelola
+DinasLingkunganHidup -- DataNasabah: mengakses
+DinasLingkunganHidup -- DataSampah: mengakses
+DinasLingkunganHidup -- Laporan: menghasilkan
+Transaksi -- DataNasabah: terkait
+DataNasabah -- Transaksi: memiliki
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+actor Admin
+actor Nasabah
+
+rectangle "Aplikasi Bank Sampah" {
+  Admin --> (Kelola Data Admin)
+  Nasabah --> (Registrasi Nasabah)
+  Nasabah --> (Lihat Data Nasabah)
+  Nasabah --> (Setor Sampah)
+  Nasabah --> (Tarik Uang)
+  Admin --> (Lihat Data Sampah)
+  Admin --> (Grafik Monitoring)
+  Nasabah --> (Logout)
+  Admin --> (Logout)
+}
+@enduml

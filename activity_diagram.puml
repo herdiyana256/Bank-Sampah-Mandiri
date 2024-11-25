@@ -1,0 +1,69 @@
+@startuml
+|Nasabah|
+start
+:Login;
+if (Login berhasil?) then (yes)
+  :Pilih Menu;
+  partition Transaksi {
+    :Setor Sampah;
+    :Tarik Sampah;
+  }
+  :Logout;
+else (no)
+  :Tampilkan pesan error;
+endif
+stop
+
+|Admin (Input Data Nasabah)|
+start
+:Login;
+if (Login berhasil?) then (yes)
+  :Pilih Menu Admin;
+  partition DataNasabah {
+    :Tambah Data Nasabah;
+    :Update Data Nasabah;
+  }
+  partition Transaksi {
+    :Setor Sampah;
+    :Tarik Sampah;
+  }
+  :Data Sampah;
+  :Logout;
+else (no)
+  :Tampilkan pesan error;
+endif
+stop
+
+|Dinas Lingkungan Hidup (DLH)|
+start
+:Login;
+if (Login berhasil?) then (yes)
+  :Pilih Menu DLH;
+  partition Monitoring {
+    :Monitor Data Nasabah;
+    :Monitor Data Sampah;
+    :Rekapitulasi Sampah;
+    :Status Distribusi Sampah;
+  }
+  :Logout;
+else (no)
+  :Tampilkan pesan error;
+endif
+stop
+
+|Master Admin|
+start
+:Login;
+if (Login berhasil?) then (yes)
+  :Pilih Menu Master Admin;
+  partition MonitoringAll {
+    :Monitor Semua Aktivitas;
+    :Full Access ke Data dan Transaksi;
+  }
+  :Logout;
+else (no)
+  :Tampilkan pesan error;
+endif
+stop
+
+@enduml

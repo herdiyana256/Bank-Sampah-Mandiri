@@ -1,0 +1,22 @@
+@startuml
+start
+:Mulai Pengujian;
+:Menyiapkan Lingkungan Uji;
+:Menulis Kasus Uji;
+if (Kasus Uji Tersedia?) then (Ya)
+  :Menjalankan Pengujian;
+  :Mencatat Hasil Pengujian;
+  if (Hasil Pengujian Memuaskan?) then (Ya)
+    :Lanjutkan ke Pengujian Selanjutnya;
+  else (Tidak)
+    :Analisis Hasil Pengujian;
+    :Perbaiki Kode;
+    :Menjalankan Ulang Pengujian;
+  endif
+else (Tidak)
+  :Selesai;
+endif
+:Menyiapkan Laporan Pengujian;
+:Pengujian Selesai;
+stop
+@enduml
